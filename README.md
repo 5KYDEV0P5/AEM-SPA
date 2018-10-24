@@ -108,6 +108,55 @@ Execute the following command with in the Maven project root directory
 npx create-react-app react-app
 ```
 
+### Step-04: Integrating AEM with ReactJS
+To achieve this integration two tools will be used:
+
+- aem-clientlib-generator -- used to transform compiled CSS and JS files into an AEM client library
+- frontend-maven-plugin - used to trigger NPM commands via a Maven build. This plugin will download/install Node and NPM locally for the project, ensuring consistency and making the project easy to integrate with a Continuous Integration/Continuous Deployment environment.
+
+#### Step-04.01: Configuring aem-clientlibs-generator
+
+````bash
+cd react-app
+npm install aem-clientlib-generator --save-dev
+````
+
+This will install the clientlib generator plugin and updates the package.json with the same.
+
+#### Step-04.02: Clientlib Config file
+
+Create a ```config file [clientlib.config.js]```, which will create a client library under the ```ui.apps``` which will include the assets such as ```.js and .css``` into the distribution folder
+
+```xml
+module.exports = {
+    // default working directory (can be changed per 'cwd' in every asset option)
+    context: __dirname,
+ 
+    // path to the clientlib root folder (output)
+    clientLibRoot: "./../ui.apps/src/main/content/jcr_root/apps/wknd-events/clientlibs",
+ 
+    libs: {
+        name: "react-app",
+        allowProxy: true,
+        categories: ["wknd-events.react"],
+        serializationFormat: "xml",
+        jsProcessor: ["min:gcc"],
+        assets: {
+            js: [
+                "build/static/**/*.js"
+            ],
+            css: [
+                "build/static/**/*.css"
+            ]
+        }
+    }
+};
+```
+
+
+
+
+
 ## Dependencies
 
 - clientlib-generator
