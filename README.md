@@ -127,18 +127,18 @@ This will install the clientlib generator plugin and updates the package.json wi
 
 Create a ```config file [clientlib.config.js]```, which will create a client library under the ```ui.apps``` which will include the assets such as ```.js and .css``` into the distribution folder
 
-```xml
+```bash
 module.exports = {
     // default working directory (can be changed per 'cwd' in every asset option)
     context: __dirname,
  
     // path to the clientlib root folder (output)
-    clientLibRoot: "./../ui.apps/src/main/content/jcr_root/apps/wknd-events/clientlibs",
+    clientLibRoot: "./../ui.apps/src/main/content/jcr_root/apps/sdspa/clientlibs",
  
     libs: {
         name: "react-app",
         allowProxy: true,
-        categories: ["wknd-events.react"],
+        categories: ["sdspa.react"],
         serializationFormat: "xml",
         jsProcessor: ["min:gcc"],
         assets: {
@@ -153,9 +153,150 @@ module.exports = {
 };
 ```
 
+Add the clientlibs to the build script under package.json, so that, the clientlibs[js,css] will be added to distribution
+```json
+{
+  "name": "react-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-scripts": "2.0.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && clientlib --verbose",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "aem-clientlib-generator": "^1.4.1"
+  }
+}
+```
 
+### Step-05: Configuring frontend-maven-plugin
+This will enhance the project capabilities and will allow us to treat/control the react app as a maven module. This way, the react app can be triggered using the parent POM file and allowing us to build the entire project with a single command.
 
+Add the following PARENT ```POM.xml``` file
+```xml
+<modules>
+    <module>core</module>
+    <!-- add React App -->
+    <module>react-app</module>
+    <module>ui.apps</module>
+    <module>ui.content</module>
+</modules>
+```
+Add the frontend-maven-plugin to PARENT POM.xml's properties
+```xml
+ <properties>
+    <aem.host>localhost</aem.host>
+    <aem.port>4502</aem.port>
+    <aem.publish.host>localhost</aem.publish.host>
+    <aem.publish.port>4503</aem.publish.port>
+    <sling.user>admin</sling.user>
+    <sling.password>admin</sling.password>
+    <vault.user>admin</vault.user>
+    <vault.password>admin</vault.password>
+ 
+    <!-- Update: Used by frontend-maven-plugin -->
+    <frontend-maven-plugin.version>1.6</frontend-maven-plugin.version>
+    <node.version>v10.8.0</node.version>
+    <npm.version>6.2.0</npm.version>
+    <!-- end update -->
+ 
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+</properties>
+```
 
+Adding a POM.xml file under the react-app to facilitate the compiling of React app using maven
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+ 
+    <!-- ====================================================================== -->
+    <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
+    <!-- ====================================================================== -->
+    <parent>
+        <groupId>com.skydevops.aemspa</groupId>
+        <artifactId>AEM-SPA</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <!-- ====================================================================== -->
+    <!-- P R O J E C T  D E S C R I P T I O N                                   -->
+    <!-- ====================================================================== -->
+    <artifactId>AEM-SPA.ui.apps</artifactId>
+    <packaging>pom</packaging>
+    <name>SDSPA - React apps</name>
+    <description>UI React application code for SDSPA</description>
+
+ 
+    <!-- ====================================================================== -->
+    <!-- B U I L D   D E F I N I T I O N                                        -->
+    <!-- ====================================================================== -->
+    <build>
+    <plugins>
+    <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>${frontend-maven-plugin.version}</version>
+ 
+        <executions>
+ 
+        <execution>
+            <id>install node and npm</id>
+            <goals>
+            <goal>install-node-and-npm</goal>
+            </goals>
+            <configuration>
+            <nodeVersion>${node.version}</nodeVersion>
+            <npmVersion>${npm.version}</npmVersion>
+        </configuration>
+        </execution>
+ 
+        <execution>
+            <id>npm install</id>
+            <goals>
+            <goal>npm</goal>
+            </goals>
+            <!-- Optional configuration which provides for running any npm command -->
+            <configuration>
+            <arguments>install</arguments>
+            </configuration>
+        </execution>
+ 
+        <execution>
+            <id>npm run build</id>
+            <goals>
+            <goal>npm</goal>
+            </goals>
+            <configuration>
+            <arguments>run build</arguments>
+            </configuration>
+        </execution>
+ 
+        </executions>
+    </plugin>
+    </plugins>
+</build>
+</project>
+```
 
 ## Dependencies
 
