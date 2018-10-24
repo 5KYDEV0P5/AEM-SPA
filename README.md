@@ -26,6 +26,30 @@ All the variable that can be overridden are stored in [vars/main.yml](vars/main.
 
 ## Integrating ReactJS with AEM
 
+    mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate \
+     -DarchetypeGroupId=com.adobe.granite.archetypes \
+     -DarchetypeArtifactId=aem-project-archetype \
+     -DarchetypeVersion=14 \
+     -DarchetypeCatalog=https://repo.adobe.com/nexus/content/groups/public/
+
+Where 14 is the archetype version number that you want to use (see archetype versions below).
+
+### Available properties
+
+Name               | Description
+-------------------|------------------------------
+groupId            | Base Maven groupId
+artifactId         | Base Maven ArtifactId
+version            | Version
+package            | Java Source Package
+appsFolderName     | /apps folder name
+artifactName       | Maven Project Name
+componentGroupName | AEM component group name
+contentFolderName  | /content folder name
+confFolderName     | /conf folder name
+cssId              | prefix used in generated css
+packageGroup       | Content Package Group name
+siteName           | AEM site name
 
 ## Dependencies
 
