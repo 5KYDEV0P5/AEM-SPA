@@ -356,6 +356,33 @@ Result:
 mvn clean install -PautoInstallPackagePublish
 ```
 
+```
+[INFO]
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ AEM-SPA.ui.content ---
+[INFO] Installing C:\sdwork\development\AEM-SPA\ui.content\target\AEM-SPA.ui.content-1.0-SNAPSHOT.zip to C:\Users\SKYDEVOPS\.m2\repository\com\skydevops\aemspa\AEM-SPA.ui.content\1.0-SNAPSHOT\AEM-SPA.ui.content-1.0-SNAPSHOT.zip
+[INFO] Installing C:\sdwork\development\AEM-SPA\ui.content\pom.xml to C:\Users\SKYDEVOPS\.m2\repository\com\skydevops\aemspa\AEM-SPA.ui.content\1.0-SNAPSHOT\AEM-SPA.ui.content-1.0-SNAPSHOT.pom
+[INFO]
+[INFO] --- content-package-maven-plugin:0.5.1:install (install-package-publish) @ AEM-SPA.ui.content ---
+[INFO] Installing AEM-SPA.ui.content (C:\sdwork\development\AEM-SPA\ui.content\target\AEM-SPA.ui.content-1.0-SNAPSHOT.zip) to http://localhost:4503/crx/packmgr/service.jsp
+[INFO] skydevops/sdspa:AEM-SPA.ui.content, 1.0-SNAPSHOT (763540 bytes)
+[INFO]     Created : Wed, 24 Oct 2018 16:50:34 +0530 by SKYDEVOPS
+```
+```
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO]
+[INFO] AEM-SPA 1.0-SNAPSHOT ............................... SUCCESS [  0.792 s]
+[INFO] SDSPA - Core ....................................... SUCCESS [  8.625 s]
+[INFO] SDSPA - React apps ................................. SUCCESS [ 32.492 s]
+[INFO] SDSPA - UI apps .................................... SUCCESS [ 14.940 s]
+[INFO] SDSPA - UI content 1.0-SNAPSHOT .................... SUCCESS [  2.343 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:01 min
+[INFO] Finished at: 2018-10-24T16:50:36+05:30
+[INFO] ------------------------------------------------------------------------
+```
 
 ## License
 
