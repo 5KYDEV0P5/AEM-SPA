@@ -74,8 +74,3 @@ buildNumber.properties
 ### IntelliJ ###
 .idea/
 *.iml
-
-### React ###
-react-app/node_modules
-react-app/node
-react-app/build

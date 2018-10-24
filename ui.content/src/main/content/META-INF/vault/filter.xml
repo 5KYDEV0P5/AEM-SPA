@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/conf/sdspa"/>
-    <filter root="/content/sdspa"/>
-    <filter root="/content/dam/sdspa"/>
+    <filter root="/conf/sd-aero"/>
+    <filter root="/content/sd-aero"/>
+    <filter root="/content/dam/sd-aero"/>
 </workspaceFilter>

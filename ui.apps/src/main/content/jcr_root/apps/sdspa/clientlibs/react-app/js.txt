@@ -1,5 +1,0 @@
-#base=js
-
-1.a700ff87.chunk.js
-main.3e4d27c0.chunk.js
-runtime~main.229c360f.js

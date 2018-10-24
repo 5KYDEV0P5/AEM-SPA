@@ -21,19 +21,19 @@
     <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
     <!-- ====================================================================== -->
     <parent>
-        <groupId>com.skydevops.aemspa</groupId>
-        <artifactId>AEM-SPA</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <groupId>com.skydevops.sd.guide</groupId>
+        <artifactId>sd-guide-sd-aero</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>AEM-SPA.ui.apps</artifactId>
+    <artifactId>sd-guide-sd-aero.ui.apps</artifactId>
     <packaging>content-package</packaging>
-    <name>SDSPA - UI apps</name>
-    <description>UI apps package for SDSPA</description>
+    <name>sd aero - UI apps</name>
+    <description>UI apps package for sd aero</description>
 
     <!-- <scm>
         <connection></connection>
@@ -92,12 +92,12 @@
                     <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
                     <verbose>true</verbose>
                     <failOnError>true</failOnError>
-                    <group>skydevops/sdspa</group>
+                    <group>sd-guide/sd-aero</group>
                     <embeddeds>
                         <embedded>
-                            <groupId>com.skydevops.aemspa</groupId>
-                            <artifactId>AEM-SPA.core</artifactId>
-                            <target>/apps/sdspa/install</target>
+                            <groupId>com.skydevops.sd.guide</groupId>
+                            <artifactId>sd-guide-sd-aero.core</artifactId>
+                            <target>/apps/sd-aero/install</target>
                         </embedded>
                     </embeddeds>
                     <subPackages>
@@ -122,9 +122,9 @@
     <!-- ====================================================================== -->
     <dependencies>
         <dependency>
-            <groupId>com.skydevops.aemspa</groupId>
-            <artifactId>AEM-SPA.core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>com.skydevops.sd.guide</groupId>
+            <artifactId>sd-guide-sd-aero.core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>

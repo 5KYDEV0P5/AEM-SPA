@@ -3,12 +3,12 @@ module.exports = {
     context: __dirname,
  
     // path to the clientlib root folder (output)
-    clientLibRoot: "./../ui.apps/src/main/content/jcr_root/apps/sdspa/clientlibs",
+    clientLibRoot: "./../ui.apps/src/main/content/jcr_root/apps/sd-aero/clientlibs",
  
     libs: {
         name: "react-app",
         allowProxy: true,
-        categories: ["sdspa.react"],
+        categories: ["sd-aero.react"],
         serializationFormat: "xml",
         jsProcessor: ["min:gcc"],
         assets: {
