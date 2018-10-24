@@ -100,6 +100,22 @@ cssId              | sdspa
 packageGroup       | skydevops/sdspa
 siteName           | SD SPA
 
+<!-- 
+Property            | Value
+--------------------|------------------------------
+groupId             | com.skydevops.sdspa
+artifactId          | skydevops-sdspa
+version             | 0.0.1-SNAPSHOT
+package             | com.skydevops.sdspa
+appsFolderName      | sdspa
+artifactName        | SD SPA
+componentGroupName  | SD SPA - Content
+confFolderName      | sdspa
+contentFolderName   | sdspa
+cssId               | sdspa
+packageGroup        | skydevops/sdspa
+siteName            | SD SPA -->
+
 ### Step-03: Adding React Project [Barebone React Project]
 
 Execute the following command with in the Maven project root directory
@@ -382,6 +398,48 @@ mvn clean install -PautoInstallPackagePublish
 [INFO] Total time: 01:01 min
 [INFO] Finished at: 2018-10-24T16:50:36+05:30
 [INFO] ------------------------------------------------------------------------
+```
+
+### Step-08: Integrating React On the Page
+Page_PATH:
+
+- ui.apps/src/main/content/jcr_root/apps/sdspa/components/structure/page/customheaderlibs.html
+
+```xml
+<!--/*
+Custom Headerlibs for React Site
+*/-->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta property="cq:datatype" data-sly-test="${wcmmode.edit || wcmmode.preview}" content="JSON"/>
+<meta property="cq:wcmmode" data-sly-test="${wcmmode.edit}" content="edit"/>
+<meta property="cq:wcmmode" data-sly-test="${wcmmode.preview}" content="preview"/>
+<meta property="cq:pagemodel_root_url"
+    data-sly-use.page="com.adobe.aem.guides.wkndevents.core.models.HierarchyPage"
+    content="${page.rootUrl}"/>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+<sly data-sly-call="${clientlib.css @ categories='sdspa.react'}"/>
+```
+
+- ui.apps/src/main/content/jcr_root/apps/sdspa/components/structure/page/customfooterlibs.html
+
+```xml
+<!--/*
+Custom footer React libs
+*/-->
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"></sly>
+<sly data-sly-test="${wcmmode.edit || wcmmode.preview}"
+    data-sly-call="${clientLib.js @ categories='cq.authoring.pagemodel.messaging'}"></sly>
+<sly data-sly-call="${clientLib.js @ categories='sdspa.react'}"></sly>
+```
+
+- ui.apps/src/main/content/jcr_root/apps/sdspa/components/structure/page/body.html
+
+```xml
+<!--/*
+- body.html
+- includes div that will be targeted by SPA
+*/-->
+<div id="root"></div>
 ```
 
 ## License
