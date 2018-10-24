@@ -17,7 +17,7 @@ Building single page application using AEM and ReactJS
 
 
 ## Maven Settings File - Adobe Public Repository
-All the variable that can be overridden are stored in [vars/main.yml](vars/main.yml) or [defaults/main.yml](defaults/main.yml) file as shown in the table below:
+This file can be placed in the project directory or at default location ```%HOME%\.m2\settings.xml```, if placed in the different location, whilst compiling pass the ```-s settings.xml file location```
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
