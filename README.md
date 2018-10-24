@@ -319,27 +319,43 @@ Result:
 [INFO] ------------------------------------------------------------------------
 ```
 
-## Dependencies
 
-- clientlib-generator
+### Step-07: Installing the package to AEM Publish instance using maven profile
 
-## Example Code samples
-
-### Clientlib-generator sample
-
-```yaml
-- hosts: all
-  become: yes
-  gather_facts: yes
-  roles:
-    - role: 5KYDEV0P5.common
-
-- hosts: testservers
-  become: yes
-  gather_facts: yes
-  roles:
-    - role: 5KYDEV0P5.skydevops-mysql
+```xml
+        <profile>
+            <id>autoInstallPackagePublish</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>com.day.jcr.vault</groupId>
+                            <artifactId>content-package-maven-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <id>install-package-publish</id>
+                                    <goals>
+                                        <goal>install</goal>
+                                    </goals>
+                                    <configuration>
+                                        <targetURL>http://${aem.publish.host}:${aem.publish.port}/crx/packmgr/service.jsp</targetURL>
+                                    </configuration>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
 ```
+
+```bash
+mvn clean install -PautoInstallPackagePublish
+```
+
 
 ## License
 
