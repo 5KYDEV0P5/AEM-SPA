@@ -241,7 +241,7 @@ Adding a POM.xml file under the react-app to facilitate the compiling of React a
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>AEM-SPA.ui.apps</artifactId>
+    <artifactId>AEM-SPA.react</artifactId>
     <packaging>pom</packaging>
     <name>SDSPA - React apps</name>
     <description>UI React application code for SDSPA</description>
