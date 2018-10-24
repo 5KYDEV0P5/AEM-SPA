@@ -118,7 +118,7 @@ siteName            | SD SPA -->
 
 ### Step-03: Adding React Project [Barebone React Project]
 
-Execute the following command with in the Maven project root directory
+- Execute the following command with in the Maven project root directory
 
 ```bash
 npx create-react-app react-app
@@ -141,7 +141,7 @@ This will install the clientlib generator plugin and updates the package.json wi
 
 #### Step-04.02: Clientlib Config file
 
-Create a ```config file [clientlib.config.js]```, which will create a client library under the ```ui.apps``` which will include the assets such as ```.js and .css``` into the distribution folder
+- Create a ```config file [clientlib.config.js]```, which will create a client library under the ```ui.apps``` which will include the assets such as ```.js and .css``` into the distribution folder
 
 ```javascript
 module.exports = {
@@ -169,7 +169,7 @@ module.exports = {
 };
 ```
 
-Add the clientlibs to the build script under package.json, so that, the clientlibs[js,css] will be added to distribution
+- Add the clientlibs to the build script under package.json, so that, the clientlibs[js,css] will be added to distribution
 ```json
 {
   "name": "react-app",
@@ -204,7 +204,7 @@ Add the clientlibs to the build script under package.json, so that, the clientli
 ### Step-05: Configuring frontend-maven-plugin
 This will enhance the project capabilities and will allow us to treat/control the react app as a maven module. This way, the react app can be triggered using the parent POM file and allowing us to build the entire project with a single command.
 
-Add the following PARENT ```POM.xml``` file
+- Add the following PARENT ```POM.xml``` file
 ```xml
 <modules>
     <module>core</module>
@@ -214,7 +214,8 @@ Add the following PARENT ```POM.xml``` file
     <module>ui.content</module>
 </modules>
 ```
-Add the frontend-maven-plugin to PARENT POM.xml's properties
+
+- Add the frontend-maven-plugin to PARENT POM.xml's properties
 ```xml
  <properties>
     <aem.host>localhost</aem.host>
@@ -237,7 +238,7 @@ Add the frontend-maven-plugin to PARENT POM.xml's properties
 </properties>
 ```
 
-Adding a POM.xml file under the react-app to facilitate the compiling of React app using maven
+- Adding a POM.xml file under the react-app to facilitate the compiling of React app using maven
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -315,12 +316,12 @@ Adding a POM.xml file under the react-app to facilitate the compiling of React a
 ```
 
 ### Step-06: Execute the Maven command to compile and package
-
+- Compile
 ```bash
 mvn clean install
 ```
 
-Result:
+- Result:
 ```
 [INFO] AEM-SPA 1.0-SNAPSHOT ............................... SUCCESS [  2.012 s]
 [INFO] SDSPA - Core ....................................... SUCCESS [01:53 min]
@@ -337,7 +338,7 @@ Result:
 
 
 ### Step-07: Installing the package to AEM Publish instance using maven profile
-
+- Build and Deploy maven profile for Publish Instance
 ```xml
         <profile>
             <id>autoInstallPackagePublish</id>
@@ -367,11 +368,11 @@ Result:
             </build>
         </profile>
 ```
-
+- command
 ```bash
 mvn clean install -PautoInstallPackagePublish
 ```
-
+- Output
 ```
 [INFO]
 [INFO] --- maven-install-plugin:2.5.2:install (default-install) @ AEM-SPA.ui.content ---
@@ -383,6 +384,7 @@ mvn clean install -PautoInstallPackagePublish
 [INFO] skydevops/sdspa:AEM-SPA.ui.content, 1.0-SNAPSHOT (763540 bytes)
 [INFO]     Created : Wed, 24 Oct 2018 16:50:34 +0530 by SKYDEVOPS
 ```
+- Result
 ```
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary:
