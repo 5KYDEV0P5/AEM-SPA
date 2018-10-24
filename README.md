@@ -13,11 +13,11 @@ Building single page application using AEM and ReactJS
 - Java 	>=	1.8.0_161
 - Maven >=	3.5.x
 
-## AEM - Multi Module Project Setup
+## AEM - Multi Module Project Setup - Integrating ReactJS with AEM
 
 
 ### STEP-01: Maven Settings File - Adobe Public Repository
-This file can be placed in the project directory or at default location ```%HOME%\.m2\settings.xml```, if placed in the different location, whilst compiling pass the ```-s settings.xml file location```
+This file can be placed in the project directory or at default location ```%HOME%\.m2\settings.xml```, if placed in the different location, whilst compiling pass the ```-s <settings.xml_file_location>```
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -56,7 +56,7 @@ This file can be placed in the project directory or at default location ```%HOME
 </settings>
 ```
 
-## Integrating ReactJS with AEM
+## Step-02: Setting Up AEM Maven Project - Local Setup
 
     mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate \
      -DarchetypeGroupId=com.adobe.granite.archetypes \
@@ -82,6 +82,27 @@ confFolderName     | /conf folder name
 cssId              | prefix used in generated css
 packageGroup       | Content Package Group name
 siteName           | AEM site name
+
+### Example Properties
+
+Name               | Description
+-------------------|------------------------------
+groupId            | com.skydevops.aemspa
+artifactId         | AEM-SPA
+version            | 0.0.1-SNAPSHOT
+package            | com.skydevops.aemspa
+appsFolderName     | sdspa
+artifactName       | SDSPA
+componentGroupName | skydevops
+contentFolderName  | sdspa
+confFolderName     | sdspa
+cssId              | sdspa
+packageGroup       | skydevops/sdspa
+siteName           | SD SPA
+
+### Step-03: Adding React Project [Barebone React Project]
+
+
 
 ## Dependencies
 
