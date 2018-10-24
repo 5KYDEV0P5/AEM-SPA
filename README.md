@@ -298,6 +298,27 @@ Adding a POM.xml file under the react-app to facilitate the compiling of React a
 </project>
 ```
 
+### Step-06: Execute the Maven command to compile and package
+
+```bash
+mvn clean install
+```
+
+Result:
+```
+[INFO] AEM-SPA 1.0-SNAPSHOT ............................... SUCCESS [  2.012 s]
+[INFO] SDSPA - Core ....................................... SUCCESS [01:53 min]
+[INFO] SDSPA - React apps ................................. SUCCESS [ 59.995 s]
+[INFO] SDSPA - UI apps .................................... SUCCESS [  3.311 s]
+[INFO] SDSPA - UI content 1.0-SNAPSHOT .................... SUCCESS [  0.801 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 03:02 min
+[INFO] Finished at: 2018-10-24T16:40:10+05:30
+[INFO] ------------------------------------------------------------------------
+```
+
 ## Dependencies
 
 - clientlib-generator
