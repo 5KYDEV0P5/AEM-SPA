@@ -127,8 +127,8 @@ npx create-react-app react-app
 ### Step-04: Integrating AEM with ReactJS
 To achieve this integration two tools will be used:
 
-- aem-clientlib-generator -- used to transform compiled CSS and JS files into an AEM client library
-- frontend-maven-plugin - used to trigger NPM commands via a Maven build. This plugin will download/install Node and NPM locally for the project, ensuring consistency and making the project easy to integrate with a Continuous Integration/Continuous Deployment environment.
+- **aem-clientlib-generator** -- used to transform compiled CSS and JS files into an AEM client library
+- **frontend-maven-plugin** - used to trigger NPM commands via a Maven build. This plugin will download/install Node and NPM locally for the project, ensuring consistency and making the project easy to integrate with a Continuous Integration/Continuous Deployment environment.
 
 #### Step-04.01: Configuring aem-clientlibs-generator
 
@@ -141,7 +141,7 @@ This will install the clientlib generator plugin and updates the package.json wi
 
 #### Step-04.02: Clientlib Config file
 
-- Create a ```config file [clientlib.config.js]```, which will create a client library under the ```ui.apps``` which will include the assets such as ```.js and .css``` into the distribution folder
+- Create a **config file [clientlib.config.js]**, which will create a client library under the **ui.apps** which will include the assets such as ```.js and .css``` into the distribution folder
 
 ```javascript
 module.exports = {
@@ -169,7 +169,7 @@ module.exports = {
 };
 ```
 
-- Add the clientlibs to the build script under package.json, so that, the clientlibs[js,css] will be added to distribution
+- Add the clientlibs to the build script under **package.json**, so that, the **clientlibs[js,css]** will be added to distribution
 ```json
 {
   "name": "react-app",
@@ -204,7 +204,7 @@ module.exports = {
 ### Step-05: Configuring frontend-maven-plugin
 This will enhance the project capabilities and will allow us to treat/control the react app as a maven module. This way, the react app can be triggered using the parent POM file and allowing us to build the entire project with a single command.
 
-- Add the following PARENT ```POM.xml``` file
+- Add the following PARENT **POM.xml** file
 ```xml
 <modules>
     <module>core</module>
@@ -215,7 +215,7 @@ This will enhance the project capabilities and will allow us to treat/control th
 </modules>
 ```
 
-- Add the frontend-maven-plugin to PARENT POM.xml's properties
+- Add the frontend-maven-plugin to **PARENT POM.xml's properties**
 ```xml
  <properties>
     <aem.host>localhost</aem.host>
@@ -238,7 +238,7 @@ This will enhance the project capabilities and will allow us to treat/control th
 </properties>
 ```
 
-- Adding a POM.xml file under the react-app to facilitate the compiling of React app using maven
+- Adding a **POM.xml** file under the **react-app** to facilitate the compiling of React app using maven
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -368,11 +368,11 @@ mvn clean install
             </build>
         </profile>
 ```
-- command
+- **command**
 ```bash
 mvn clean install -PautoInstallPackagePublish
 ```
-- Output
+- **Output**
 ```
 [INFO]
 [INFO] --- maven-install-plugin:2.5.2:install (default-install) @ AEM-SPA.ui.content ---
@@ -384,7 +384,7 @@ mvn clean install -PautoInstallPackagePublish
 [INFO] skydevops/sdspa:AEM-SPA.ui.content, 1.0-SNAPSHOT (763540 bytes)
 [INFO]     Created : Wed, 24 Oct 2018 16:50:34 +0530 by SKYDEVOPS
 ```
-- Result
+- **Result**
 ```
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary:
@@ -405,7 +405,7 @@ mvn clean install -PautoInstallPackagePublish
 ### Step-08: Integrating React On the Page
 Page_PATH:
 
-- ui.apps/src/main/content/jcr_root/apps/sdspa/components/structure/page/customheaderlibs.html
+- **ui.apps/src/main/content/jcr_root/apps/sdspa/components/structure/page/customheaderlibs.html**
 
 ```xml
 <!--/*
@@ -422,7 +422,7 @@ Custom Headerlibs for React Site
 <sly data-sly-call="${clientlib.css @ categories='sdspa.react'}"/>
 ```
 
-- ui.apps/src/main/content/jcr_root/apps/sdspa/components/structure/page/customfooterlibs.html
+- **ui.apps/src/main/content/jcr_root/apps/sdspa/components/structure/page/customfooterlibs.html**
 
 ```xml
 <!--/*
@@ -434,7 +434,7 @@ Custom footer React libs
 <sly data-sly-call="${clientLib.js @ categories='sdspa.react'}"></sly>
 ```
 
-- ui.apps/src/main/content/jcr_root/apps/sdspa/components/structure/page/body.html
+- **ui.apps/src/main/content/jcr_root/apps/sdspa/components/structure/page/body.html**
 
 ```xml
 <!--/*
