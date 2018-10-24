@@ -127,7 +127,7 @@ This will install the clientlib generator plugin and updates the package.json wi
 
 Create a ```config file [clientlib.config.js]```, which will create a client library under the ```ui.apps``` which will include the assets such as ```.js and .css``` into the distribution folder
 
-```bash
+```javascript
 module.exports = {
     // default working directory (can be changed per 'cwd' in every asset option)
     context: __dirname,
