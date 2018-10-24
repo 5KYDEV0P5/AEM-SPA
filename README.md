@@ -19,10 +19,42 @@ Building single page application using AEM and ReactJS
 ## Maven Settings File - Adobe Public Repository
 All the variable that can be overridden are stored in [vars/main.yml](vars/main.yml) or [defaults/main.yml](defaults/main.yml) file as shown in the table below:
 
-| Name                                    | Default Value   | Description                               |
-|---------------------------------------- |---------------- |-----------------------------------------  |
-| `mysql_user_home`                       | /root           | Default User directory                    |
-
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+<!-- SKYDEVOPS -->
+  <pluginGroups></pluginGroups>
+  <proxies></proxies>
+  <servers></servers>
+  <mirrors></mirrors>
+  <profiles>
+    <profile>
+          <id>adobe-public</id>
+          <activation>
+              <activeByDefault>true</activeByDefault>
+          </activation>
+          <repositories>
+            <repository>
+              <id>adobe</id>
+              <name>Nexus Proxy Repository</name>
+              <url>http://repo.adobe.com/nexus/content/groups/public/</url>
+              <layout>default</layout>
+            </repository>
+          </repositories>
+          <pluginRepositories>
+            <pluginRepository>
+              <id>adobe</id>
+              <name>Nexus Proxy Repository</name>
+              <url>http://repo.adobe.com/nexus/content/groups/public/</url>
+              <layout>default</layout>
+            </pluginRepository>
+          </pluginRepositories>
+      </profile>
+  </profiles>
+</settings>
+```
 
 ## Integrating ReactJS with AEM
 
