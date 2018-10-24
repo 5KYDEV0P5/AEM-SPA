@@ -102,7 +102,11 @@ siteName           | SD SPA
 
 ### Step-03: Adding React Project [Barebone React Project]
 
+Execute the following command with in the Maven project root directory
 
+```bash
+npx create-react-app react-app
+```
 
 ## Dependencies
 
