@@ -16,7 +16,7 @@ Building single page application using AEM and ReactJS
 ## AEM - Multi Module Project Setup
 
 
-## Maven Settings File - Adobe Public Repository
+### STEP-01: Maven Settings File - Adobe Public Repository
 This file can be placed in the project directory or at default location ```%HOME%\.m2\settings.xml```, if placed in the different location, whilst compiling pass the ```-s settings.xml file location```
 
 ```xml
