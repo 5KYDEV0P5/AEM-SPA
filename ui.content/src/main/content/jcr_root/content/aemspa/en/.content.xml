@@ -29,7 +29,7 @@
                 <image
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemspa/components/content/image"
-                    fileReference="/content/dam/aemspa/cq5dam.thumbnail.319.319.png"/>
+                    fileReference="/content/dam/aemspa/asset.jpg"/>
                 <list
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
