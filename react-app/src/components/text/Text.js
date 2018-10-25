@@ -35,7 +35,6 @@ class Text extends Component {
     }
  
     render() {
-        // return this.props.richText ? this.richTextContent : this.textContent;
         let innercontent = this.props.richText ? this.richTextContent : this.textContent;
         return (<div className="Text">
                 {innercontent}
