@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ModelManager, Constants } from '@adobe/cq-spa-page-model-manager';
+import './index.scss';
 import App from './App';
 import "./components/MappedComponents";
  
