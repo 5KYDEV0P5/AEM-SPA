@@ -1,0 +1,7 @@
+{
+    "terminal.explorerKind": "external",
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.cursorBlinking": true,
+    // Git Bash
+    "terminal.integrated.shell.windows": "C:\\tools\\Git\\bin\\bash.exe"
+}
