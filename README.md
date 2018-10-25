@@ -403,10 +403,10 @@ Custom Headerlibs for React Site
 <meta property="cq:wcmmode" data-sly-test="${wcmmode.edit}" content="edit"/>
 <meta property="cq:wcmmode" data-sly-test="${wcmmode.preview}" content="preview"/>
 <meta property="cq:pagemodel_root_url"
-    data-sly-use.page="com.skydevops.aemspa.core.models.HierarchyPage"
+    data-sly-use.page="com.skydevops.aemspa.core.models.HelloWorldModel"
     content="${page.rootUrl}"/>
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
-<sly data-sly-call="${clientlib.css @ categories='sdspa.react'}"/>
+<sly data-sly-call="${clientlib.css @ categories='aemspa.react'}"/>
 ```
 
 - **ui.apps/src/main/content/jcr_root/apps/sdspa/components/structure/page/customfooterlibs.html**
@@ -418,7 +418,7 @@ Custom footer React libs
 <sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"></sly>
 <sly data-sly-test="${wcmmode.edit || wcmmode.preview}"
     data-sly-call="${clientLib.js @ categories='cq.authoring.pagemodel.messaging'}"></sly>
-<sly data-sly-call="${clientLib.js @ categories='sdspa.react'}"></sly>
+<sly data-sly-call="${clientLib.js @ categories='aemspa.react'}"></sly>
 ```
 
 - **ui.apps/src/main/content/jcr_root/apps/sdspa/components/structure/page/body.html**
