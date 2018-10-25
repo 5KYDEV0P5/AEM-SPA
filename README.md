@@ -408,7 +408,7 @@ Custom Headerlibs for React Site
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
 <sly data-sly-call="${clientlib.css @ categories='aemspa.react'}"/>
 ```
-_NOTE: The page is loaded from the model in core module @ **core\src\main\java\com\skydevops\aemspa\core\models\HelloWorldModel**_
+_NOTE: The page is loaded from the model in core module "**core\src\main\java\com\skydevops\aemspa\core\models\HelloWorldModel**"_
 
 - **ui.apps/src/main/content/jcr_root/apps/sdspa/components/structure/page/customfooterlibs.html**
 
