@@ -18,4 +18,4 @@ class sdPage extends Page {
     }
 }
  
-MapTo('wknd-events/components/structure/page')(withComponentMappingContext(sdPage));
+MapTo('aemspa/components/structure/page')(withComponentMappingContext(sdPage));

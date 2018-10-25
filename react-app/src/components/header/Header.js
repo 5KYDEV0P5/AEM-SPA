@@ -9,7 +9,7 @@ export default class Header extends Component {
       return (
       <header className="Header">
           <div className="Header-wrapper">
-              <h1 className="Header-title">SKY<span className="Header-title--inverse">_DEVOPS</span></h1>
+              <h1 className="Header-title">Kalyan<span className="Header-title--inverse">_Kona</span></h1>
           </div>
         </header>
       );
