@@ -11,6 +11,7 @@ module.exports = {
         categories: ["aemspa.react"],
         serializationFormat: "xml",
         jsProcessor: ["min:gcc"],
+        dependencies:["aemspa.grid"],
         assets: {
             js: [
                 "build/static/**/*.js"

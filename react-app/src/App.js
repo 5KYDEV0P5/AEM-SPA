@@ -2,6 +2,7 @@
  
 import React from 'react';
 import { Page, withModel, EditorContext, Utils } from '@adobe/cq-react-editable-components';
+import Header from './components/header/Header';
  
 // This component is the application entry point
 class App extends Page {
@@ -9,10 +10,11 @@ class App extends Page {
     render() {
         return (
             <div className="App">
-                <header className="App-header">
+                {/* <header className="App-header">
                     <h1>SKYDEVOPS</h1>
                     <h1>Welcome to AEM + React</h1>
-                </header>
+                </header> */}
+                <Header />
                 <EditorContext.Provider value={ Utils.isInEditor() }>
                     { this.childComponents }
                     { this.childPages }
