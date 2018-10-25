@@ -109,7 +109,7 @@ siteName           | SD SPA
 npx create-react-app react-app
 ```
 
-- Modified gitignore file **react-app/** and **aemspa/**  Modified gitignore file ([.gitignore](https://gist.github.com/sky-kshatriyan/09edd418a4b93d7511dde3129971122f))
+- Modified gitignore file **react-app/** and **aemspa/** ([.gitignore](https://gist.github.com/sky-kshatriyan/09edd418a4b93d7511dde3129971122f))
 
 ### Step-04: Integrating AEM with ReactJS
 To achieve this integration two tools will be used:
