@@ -3,5 +3,6 @@
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.cursorBlinking": true,
     // Git Bash
-    "terminal.integrated.shell.windows": "C:\\tools\\Git\\bin\\bash.exe"
+    "terminal.integrated.shell.windows": "C:\\tools\\Git\\bin\\bash.exe",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
