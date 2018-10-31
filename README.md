@@ -64,6 +64,10 @@ This file can be placed in the project directory or at default location ```%HOME
      -DarchetypeVersion=14 \
      -DarchetypeCatalog=https://repo.adobe.com/nexus/content/groups/public/
 
+     -or-
+
+     mvn org.apache.maven.plugins:maven-archetype-plugin:2.4:generate -DarchetypeGroupId=com.adobe.granite.archetypes -DarchetypeArtifactId=aem-project-archetype -DarchetypeVersion=14 -DarchetypeCatalog=https://repo.adobe.com/nexus/content/groups/public/
+
 Where 14 is the archetype version number that you want to use (see archetype versions below).
 
 ### Available properties
